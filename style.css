@@ -1,0 +1,157 @@
+/*
+  =================================
+  Style for Bio Page
+  Created by: Kanibal (and Gemini)
+  Date: [8.07.2025]
+  Description: Maybe it was created with AI, and who cares? I'm not a web designer, im a LuaU coder!
+  =================================
+*/
+
+body {
+    font-family: sans-serif;
+    background-color: #121212;
+    color: #E0E0E0;
+    line-height: 1.6;
+    margin: 0;
+    padding: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.container {
+    width: 90%;
+    max-width: 950px;
+    background-color: #1E1E1E;
+    padding: 2.5rem;
+    border-radius: 10px;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+}
+
+header {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+header img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    margin-bottom: 1rem;
+    border: 3px solid #BB86FC;
+    box-shadow: 0 0 25px rgba(187, 134, 252, 0.65);
+}
+
+header h1 {
+    font-size: 2.5rem;
+    color: #BB86FC;
+    margin: 0;
+    text-shadow: 0 0 25px rgba(187, 134, 252, 0.9);
+}
+
+section {
+    margin-bottom: 2rem;
+}
+
+section:last-child {
+    margin-bottom: 0;
+}
+
+section h2 {
+    font-size: 1.5rem;
+    color: #BB86FC;
+    padding-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+    border-bottom: none;
+    text-shadow: 0 0 15px rgba(187, 134, 252, 0.7);
+}
+
+section h2::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 1px;
+    background-color: #BB86FC;
+    box-shadow: 0 0 10px #BB86FC;
+}
+
+section ul {
+    list-style: none;
+    padding: 0;
+}
+
+section li {
+    margin-bottom: 0.75rem;
+    font-size: 1.1rem;
+}
+
+.links-container {
+    display: flex;
+    justify-content: center;
+    gap: 30px;
+}
+
+.links-container a {
+    position: relative;
+}
+
+.links-container a img {
+    width: 45px;
+    height: 45px;
+    transition: transform 0.2s ease-in-out, filter 0.2s ease-in-out;
+}
+
+.links-container a:hover img {
+    transform: translateY(-5px);
+    filter: brightness(1.2);
+}
+
+.links-container a::before {
+    content: attr(data-tooltip);
+    position: absolute;
+    bottom: 125%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #1E1E1E;
+    color: #E0E0E0;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    border: 1px solid #BB86FC;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.2s ease, visibility 0.2s ease;
+    box-shadow: 0 0 8px rgba(187, 134, 252, 0.7);
+}
+
+.links-container a:hover::before {
+    opacity: 1;
+    visibility: visible;
+}
+
+.portfolio-button {
+    display: block;
+    width: fit-content;
+    margin: 2rem auto 0;
+    padding: 12px 25px;
+    border: 1px solid #BB86FC;
+    border-radius: 5px;
+    color: #BB86FC;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    box-shadow: 0 0 10px rgba(187, 134, 252, 0.7);
+}
+
+.portfolio-button:hover {
+    background-color: #BB86FC;
+    color: #1E1E1E;
+    box-shadow: 0 0 20px rgba(187, 134, 252, 0.9);
+}
