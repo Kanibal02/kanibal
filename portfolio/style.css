@@ -1,8 +1,9 @@
 /*
   =================================
-  Style for Bio Page
+  Style for Portfolio Page
   Created by: Kanibal (and Gemini)
   Date: [8.07.2025]
+  Updated: [9.07.2025]
   Description: Maybe it was created with AI, and who cares? I'm not a web designer, im a LuaU coder!
   =================================
 */
@@ -83,21 +84,14 @@ nav {
 
 .portfolio-title-section {
     text-align: center;
-    margin-bottom: 3rem;
-    padding: 2rem 2rem;
+    padding: 2rem 2rem 3rem;
     border-bottom: 1px solid #3a2d47;
 }
 
 .portfolio-title-section h2 {
     font-size: 2.5rem;
     color: #E0E0E0;
-    margin: 0 0 0.5rem;
-}
-
-.portfolio-title-section p {
-    font-size: 1.1rem;
-    color: #a0a0a0;
-    margin: 0;
+    margin: 0 0 1.5rem;
 }
 
 .portfolio-grid {
@@ -106,6 +100,7 @@ nav {
     gap: 1.5rem;
     padding-left: 2rem;
     padding-right: 2rem;
+    margin-top: 3rem;
 }
 
 .game-card {
@@ -200,18 +195,69 @@ nav {
     color: #ff6b6b;
 }
 
+.personal-projects-section {
+    margin-top: 0;
+    padding: 0;
+}
+
+.project-card-personal {
+    background-color: #2a2a2e;
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+    border: 1px solid #333;
+}
+
+.project-card-personal h3 {
+    margin: 0 0 1rem 0;
+    font-size: 1.8rem;
+    color: #E0E0E0;
+}
+
+.project-card-personal p {
+    color: #b0b0b0;
+    margin: 1rem 0;
+}
+
+.card-divider {
+    border: none;
+    height: 1px;
+    background-color: #3a2d47;
+}
+
+.more-info-button {
+    display: inline-block;
+    text-decoration: none;
+    font-weight: bold;
+    color: #BB86FC;
+    background-color: transparent;
+    border: 1px solid #BB86FC;
+    padding: 10px 30px;
+    border-radius: 5px;
+    margin-top: 1rem;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    box-shadow: 0 0 10px rgba(187, 134, 252, 0.7);
+}
+
+.more-info-button:hover {
+    background-color: #BB86FC;
+    color: #1E1E1E;
+    box-shadow: 0 0 20px rgba(187, 134, 252, 0.9);
+}
+
 @media (max-width: 700px) {
+    .portfolio-title-section {
+        padding: 2rem 1.5rem 3rem;
+    }
+
+    .portfolio-grid,
+    .personal-projects-section {
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
+    }
+
     header {
         flex-direction: column;
         gap: 1.5rem;
-    }
-
-    .user-info,
-    nav {
-        justify-content: center;
-    }
-
-    nav {
-        gap: 10px;
     }
 }

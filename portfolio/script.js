@@ -3,6 +3,7 @@
   Script for fetching the games in portfolio
   Created by: Kanibal (and Gemini)
   Date: [8.07.2025]
+  Updated: [Not Updated Yet]
   Description: Maybe it was created with AI, and who cares? I'm not a web designer, im a LuaU coder!
   =================================
 */
