@@ -3,6 +3,7 @@
   Style for Bio Page
   Created by: Kanibal (and Gemini)
   Date: [8.07.2025]
+  Updated: [9.07.2025]
   Description: Maybe it was created with AI, and who cares? I'm not a web designer, im a LuaU coder!
   =================================
 */
@@ -151,6 +152,32 @@ section li {
 }
 
 .portfolio-button:hover {
+    background-color: #BB86FC;
+    color: #1E1E1E;
+    box-shadow: 0 0 20px rgba(187, 134, 252, 0.9);
+}
+
+.page-navigation-links {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+}
+
+.nav-button {
+    display: block;
+    width: fit-content;
+    padding: 12px 25px;
+    border: 1px solid #BB86FC;
+    border-radius: 5px;
+    color: #BB86FC;
+    text-decoration: none;
+    font-weight: bold;
+    transition: background-color 0.2s ease, box-shadow 0.2s ease, color 0.2s ease;
+    box-shadow: 0 0 10px rgba(187, 134, 252, 0.7);
+}
+
+.nav-button:hover {
     background-color: #BB86FC;
     color: #1E1E1E;
     box-shadow: 0 0 20px rgba(187, 134, 252, 0.9);
