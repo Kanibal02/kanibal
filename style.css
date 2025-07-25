@@ -3,7 +3,7 @@
   Style for Bio Page
   Created by: Kanibal (and Gemini)
   Date: [8.07.2025]
-  Updated: [9.07.2025]
+  Updated: [25.07.2025]
   Description: Maybe it was created with AI, and who cares? I'm not a web designer, im a LuaU coder!
   =================================
 */
@@ -181,4 +181,10 @@ section li {
     background-color: #BB86FC;
     color: #1E1E1E;
     box-shadow: 0 0 20px rgba(187, 134, 252, 0.9);
+}
+
+.inline-icon {
+    height: 1em;
+    vertical-align: middle;
+    margin-left: 0.4em;
 }
