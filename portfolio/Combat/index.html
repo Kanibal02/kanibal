@@ -1,0 +1,169 @@
+<!--
+  =================================
+  Digging Simulator Portfolio
+  Created by: Kanibal (and Gemini)
+  Date: [8.07.2025]
+  Updated: [13.08.2025]
+  Description: Maybe it was created with AI, and who cares? I'm not a web designer, im a LuaU coder!
+  =================================
+-->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Digging Simulator - Dev Blog</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="prism.css">
+</head>
+<body>
+    <div class="page-container">
+        <header>
+            <div class="user-info">
+                <img src="./images/profile.webp" alt="Profile Picture">
+                <h1>Kanibal</h1>
+            </div>
+            <nav>
+                <a href="../" class="nav-link">Back to Portfolio</a>
+            </nav>
+        </header>
+
+        <main class="dev-blog-content">
+            <section id="intro">
+                <h1>Combat System</h1>
+                <p class="subtitle">A deep dive into my combat system project, which i'm making now, so you just now, it's still WIP! but here's some info</p>
+                <!--<a href="https://www.roblox.com/games/77658769179395/digging-simulator" class="play-button">Play The Game on Roblox</a> --> 
+            </section>
+            
+            <div class="main-divider"></div>
+
+            <article id="dev-blog">
+                <h2>The Beginning</h2>
+
+                <h3>This project is still in Development!</h3>
+                <p>
+                    <br>
+                    <strong>If you see bad english in some places, sorry im not a native english speaker, and i type fast, which might make me mispell words</strong> 
+                    <br>
+                    <br>
+                    So i asked on <strong style="color: #2ecc71; text-shadow: 0 0 8px rgba(46, 204, 113, 0.7);">Hidden Devs</strong> <strong style="color: #2e78cc; text-shadow: 0 0 8px rgba(46, 133, 204, 0.7);">discord</strong> server what project i could make, and a guy told me to make a combat system, so i did
+                    <br>
+                    <br>
+                    so i thought, how do i start? i made a simple sword tool, and started coding in a server script, but later changed to a local script and again a server script, but more on that in the next Chapter.
+                    <br>
+                    <br>
+                </p>
+
+                <h2>Challenges & Solutions</h2>
+                <p>
+                    When doing the local script, i came to an conclusion, wait if i just do
+                </p>
+                
+                <pre><code class="language-lua">
+Humanoid:TakeDamage(20)
+                </code></pre>
+
+                <p>
+                    then i would only attack on the client side, so i made it as a server script, but i've needed to re code the script a bit
+                    <br>
+                    also i was using <code>.Touched</code>
+                    <br>
+                    <br>
+                    And you might ask, whats the problem with it, oh boy there is alot of problems with it, it would not detect most of the times, players, that are standing in place, which got me annoyed
+                    <br>
+                    so i searched on forums, and found
+
+
+                                <pre><code class="language-lua">
+workspace:GetPartsInPart(part)
+                </code></pre>
+
+                <p>
+                    and then i used it, and it fixed every single problem, that i had with detecting the hitbox actually attacking players
+                    <br>
+                    here is the module script code snippet of how this is done
+
+                <pre><code class="language-lua">
+function Module:SpawnHitboxConnection(playerCharacter, HitBox)
+	
+	table.clear(Module.attackedPlayers)
+	Module.attackedPlayers[playerCharacter] = true
+	-- So the player doesn't attack himself
+	
+	local newHeartbeatConnection = RunService.Heartbeat:Connect(function()
+		
+		if not Module.IsHitboxActive then
+			return
+		end
+
+		local parts = workspace:GetPartsInPart(HitBox)
+
+		for _, part in pairs(parts) do
+
+			local AttackedCharacter = part.Parent
+			local AttackedHumanoid = AttackedCharacter:FindFirstChildOfClass("Humanoid")
+
+			if AttackedHumanoid and not Module.attackedPlayers[AttackedCharacter] then
+				Module.attackedPlayers[AttackedCharacter] = true
+
+				AttackedHumanoid:TakeDamage(Module.SETTINGS.ATTACK_DAMAGE)
+			end
+		end
+	end)
+	
+	Module.ActiveHeartbeatConnections[playerCharacter] = newHeartbeatConnection
+	
+	return newHeartbeatConnection
+end
+                </code></pre>
+
+
+                </p>
+
+                    <p>
+                    It was easy to do this part, and then i literally started to do it with each thing i had in my server attacking script, and converted it to a module script
+                    <br>
+                    (As the time of writing this, im still doing that, <strong>13.08.2025 18:24 GMT+2</strong>)
+                    <br>
+                    <br>
+                    But i still want to do a few things, like a few swords and a different <strong style="color: #922ecc; text-shadow: 0 0 8px rgba(140, 54, 211, 0.7);">config</strong> for each one of them
+                    <br>
+                    i also want to add a <code>Block</code> and a <code>Parry</code> systems to it, but that's soon to be added
+                    <br>
+                    <br>
+                    <br>
+
+                    <strong>Remember that this system is still in Development, so there's more to come in this Blog/Portfolio</strong>
+                    <br>
+                    <br>
+                    <strong style="color: #a1e3f7; text-shadow: 0 0 8px rgba(92, 192, 231, 0.7);">Have a good day :)</strong>
+                    
+
+                </p>
+
+<!--
+                <h2>The Final Polish</h2>
+                <p>
+                    Placeholder
+                </p>
+                -->
+            </article>
+
+            <div class="main-divider"></div>
+
+        <!--
+            <section id="summary">
+                <h2>Project Summary</h2>
+                <ul>
+                    <li><strong>Development Time:</strong> Placeholder</li>
+                    <li><strong>Time Breakdown:</strong> Placeholder</li>
+                    <li><strong>My Experience Level:</strong> Placeholder</li>
+                </ul>
+            </section>
+            -->
+        </main>
+    </div>
+    <script src="prism.js"></script>
+</body>
+</html>
